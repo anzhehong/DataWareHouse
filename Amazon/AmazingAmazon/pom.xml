@@ -101,9 +101,20 @@
       <artifactId>junit</artifactId>
       <version>3.8.2</version>
     </dependency>
+
+    <!--<dependency>-->
+      <!--<groupId>org.apache.hive</groupId>-->
+      <!--<artifactId>hive-jdbc</artifactId>-->
+      <!--<version>1.2.1</version>-->
+    <!--</dependency>-->
+
     <!--MySQL驱动和c3p0连接池-->
 
     <!--junit4-->
+
+
+    <!--hadoop and hive-->
+
 
 
 

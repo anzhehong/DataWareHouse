@@ -27,9 +27,16 @@ public class SearchMovieServiceImp implements SearchMovieService {
     private StylesDAO stylesDAO;
 
     @Override
-    public ArrayList<AllMovie> getByMultiple(String name, String style, String version, String starring, String actor, String direcotr, String year, String month, String day) {
-        return null;
+    public ArrayList<AllMovie> getByMultiple(String name, String style, String version, String starring, String actor, String director, String year, String month, String day) {
+        return searchMovieDAO.findByMutiple(name,style,starring,actor,director,version,year,month,day);
     }
+
+    @Override
+//    public ArrayList<AllMovie> getByMultiple(String name, String style, String version, String starring,
+//                                             String actor, String direcotr, String year, String month, String day) {
+//
+//        return searchMovieDAO.findByMutiple(name,style,starring,actor,direcotr,version,year,month,day);
+//    }
 
     public List<AllMovie> getAllMovieByName(String name) {
         return searchMovieDAO.findByMovieName(name);
@@ -60,26 +67,26 @@ public class SearchMovieServiceImp implements SearchMovieService {
 
     @Override
     public ArrayList<AllMovie> getByMovieYear(String year) {
-        return null;
+        return  searchMovieDAO.findByYear(year);
     }
 
     @Override
-    public ArrayList<AllMovie> getByMovieTime(String date) {
-        return null;
+    public ArrayList<AllMovie> getByMovieTime(String year, String month, String day) {
+        return searchMovieDAO.findByTime(year,month,day);
     }
 
     @Override
     public ArrayList<AllMovie> getByMovieStarring(String starring) {
-        return null;
+        return searchMovieDAO.findByStarring(starring);
     }
 
     @Override
     public ArrayList<AllMovie> getByMovieActor(String actor) {
-        return null;
+        return searchMovieDAO.findByActor(actor);
     }
 
     @Override
-    public ArrayList<AllMovie> gtByMovieDirector(String director) {
-        return null;
+    public ArrayList<AllMovie> getByMovieDirector(String director) {
+        return searchMovieDAO.findByDirector(director);
     }
 }

@@ -1,6 +1,7 @@
 package com.Warehouse.DAO;
 
 import com.Warehouse.entity.AllMovie;
+import org.hibernate.SessionFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,4 +44,9 @@ public interface SearchMovieDAO extends GeneralDAO<AllMovie> {
     public ArrayList<AllMovie> findByTime(String year, String month, String day);
 
     public ArrayList<AllMovie> findByYear(String year);
+
+    /**
+     * test get session
+     */
+    public SessionFactory getSessionFactory();
 }

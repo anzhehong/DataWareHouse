@@ -1,11 +1,15 @@
 package com.Warehouse.DAO;
 
 import com.Warehouse.entity.AllMovie;
+import com.Warehouse.entity.MovieStaff;
 import com.Warehouse.entity.MovieStyle;
+import com.Warehouse.entity.Staff;
 import org.hibernate.Query;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import javax.security.auth.login.Configuration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +29,10 @@ public class SearchMovieDAOImp extends GeneralDAOImp<AllMovie> implements Search
 
     @Autowired
     private MovieStyleDAO movieStyleDAO;
+    @Autowired
+    private StaffDAO staffDAO;
+    @Autowired
+    private MovieStaffDAO movieStaffDAO;
 
 
     @Override
@@ -46,7 +54,31 @@ public class SearchMovieDAOImp extends GeneralDAOImp<AllMovie> implements Search
     }
 
     public ArrayList<AllMovie> findByMutiple(String name, String style, String starring, String actor, String director, String version, String year, String month, String day) {
-        return null;
+        String hql = "from AllMovie where MovieName like :name and MovieVersion like :version and Style like:style and Year like:y and Month like:m and Day like:d and Starring like :starring and Actor like :actor and Director like :director";
+
+        String hql2 = "from AllMovie where MovieName like ? and MovieVersion like ? and Style like ? and Year like ? and Month like ? and Day like ?";
+//        Query query = super.sessionFactory.getCurrentSession().createQuery(hql);
+//        query.setString("name","%"+name+"%");
+//        query.setString("version","%"+version+"%");
+//        query.setString("style","%"+style+"%");
+//        query.setString("y","%"+year+"%");
+//        query.setString("m","%"+month+"%");
+//        query.setString("d","%"+day+"%");
+//        query.setString("director","%"+director+"%");
+//        query.setString("starring","%"+starring+"%");
+//        query.setString("actor","%"+actor+"%");
+
+        Query query2 = super.sessionFactory.getCurrentSession().createQuery(hql2);
+        query2.setString(0,"%"+name+"%");
+        query2.setString(1,"%"+version+"%");
+        query2.setString(2,"%"+style+"%");
+        query2.setString(3,"%"+year+"%");
+        query2.setString(4,"%"+month+"%");
+        query2.setString(5,"%"+day+"%");
+//        query2.setString(,"%"++"%");
+//        query2.setString(,"%"++"%");
+//        query2.setString(,"%"++"%");
+        return (ArrayList<AllMovie>) query2.list();
     }
 
     public List findByMovieName(String name) {
@@ -74,16 +106,96 @@ public class SearchMovieDAOImp extends GeneralDAOImp<AllMovie> implements Search
     }
 
     public ArrayList<AllMovie> findByStarring(String starring) {
+        String hql1 = "from Staff where StaffName = :m and StaffJob = :n";
+        Query query1 = super.sessionFactory.getCurrentSession().createQuery(hql1);
+        query1.setString("m",starring);
+        query1.setInteger("n",1);
+        ArrayList<Staff> staffs = (ArrayList<Staff>) query1.list();
+        ArrayList<Integer> staffIds = new ArrayList<Integer>();
 
-        return null;
+        for (int i =0 ; i < staffs.size(); i ++)
+        {
+            staffIds.add(staffs.get(i).getStaffId());
+        }
+
+        ArrayList<MovieStaff> movieStaffs = new ArrayList<MovieStaff>();
+        for (int i = 0; i< staffIds.size(); i++)
+        {
+            System.out.println("aaaa");
+            System.out.println(staffIds.get(i).intValue());
+            int tempId = staffIds.get(i).intValue();
+            MovieStaff tempStaff = movieStaffDAO.getMovieStaffArrayListByStaffId(tempId).get(0);
+            movieStaffs.add(tempStaff);
+        }
+
+        ArrayList<AllMovie> allMovieArrayList = new ArrayList<AllMovie>();
+        for (int i = 0; i< movieStaffs.size(); i++)
+        {
+            AllMovie allMovie = queryByIntId(movieStaffs.get(i).getMovieId());
+            System.out.println(allMovie.getYear());
+            allMovieArrayList.add(allMovie);
+        }
+        return allMovieArrayList;
     }
 
     public ArrayList<AllMovie> findByActor(String actor) {
-        return null;
+        String hql1 = "from Staff where StaffName = :m and StaffJob = :n";
+        Query query1 = super.sessionFactory.getCurrentSession().createQuery(hql1);
+        query1.setString("m",actor);
+        query1.setInteger("n",2);
+        ArrayList<Staff> staffs = (ArrayList<Staff>) query1.list();
+        ArrayList<Integer> staffIds = new ArrayList<Integer>();
+
+        for (int i =0 ; i < staffs.size(); i ++)
+        {
+            staffIds.add(staffs.get(i).getStaffId());
+        }
+
+        ArrayList<MovieStaff> movieStaffs = new ArrayList<MovieStaff>();
+        for (int i = 0; i< staffIds.size(); i++)
+        {
+            int tempId = staffIds.get(i).intValue();
+            MovieStaff tempStaff = movieStaffDAO.getMovieStaffArrayListByStaffId(tempId).get(0);
+            movieStaffs.add(tempStaff);
+        }
+
+        ArrayList<AllMovie> allMovieArrayList = new ArrayList<AllMovie>();
+        for (int i = 0; i< movieStaffs.size(); i++)
+        {
+            AllMovie allMovie = queryByIntId(movieStaffs.get(i).getMovieId());
+            allMovieArrayList.add(allMovie);
+        }
+        return allMovieArrayList;
     }
 
     public ArrayList<AllMovie> findByDirector(String director) {
-        return null;
+        String hql1 = "from Staff where StaffName = :m and StaffJob = :n";
+        Query query1 = super.sessionFactory.getCurrentSession().createQuery(hql1);
+        query1.setString("m",director);
+        query1.setInteger("n",0);
+        ArrayList<Staff> staffs = (ArrayList<Staff>) query1.list();
+        ArrayList<Integer> staffIds = new ArrayList<Integer>();
+
+        for (int i =0 ; i < staffs.size(); i ++)
+        {
+            staffIds.add(staffs.get(i).getStaffId());
+        }
+
+        ArrayList<MovieStaff> movieStaffs = new ArrayList<MovieStaff>();
+        for (int i = 0; i< staffIds.size(); i++)
+        {
+            int tempId = staffIds.get(i).intValue();
+            MovieStaff tempStaff = movieStaffDAO.getMovieStaffArrayListByStaffId(tempId).get(0);
+            movieStaffs.add(tempStaff);
+        }
+
+        ArrayList<AllMovie> allMovieArrayList = new ArrayList<AllMovie>();
+        for (int i = 0; i< movieStaffs.size(); i++)
+        {
+            AllMovie allMovie = queryByIntId(movieStaffs.get(i).getMovieId());
+            allMovieArrayList.add(allMovie);
+        }
+        return allMovieArrayList;
     }
 
     public ArrayList<AllMovie> findByVersion(String version) {
@@ -99,13 +211,19 @@ public class SearchMovieDAOImp extends GeneralDAOImp<AllMovie> implements Search
         query.setString("m",year);
         query.setString("n",month);
         query.setString("o",day);
-        return null;
+        return (ArrayList<AllMovie>) query.list();
     }
 
     public ArrayList<AllMovie> findByYear(String year) {
         String hql = "from AllMovie where Year = :m";
         Query query = super.sessionFactory.getCurrentSession().createQuery(hql);
         query.setString("m",year);
-        return null;
+        return (ArrayList<AllMovie>) query.list();
+    }
+
+    @Override
+    public SessionFactory getSessionFactory() {
+
+        return super.sessionFactory;
     }
 }

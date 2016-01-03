@@ -26,8 +26,8 @@
        </bean>
 
        <!--静态资源库-->
-       <mvc:resources mapping="/css/**" location="/CSS/"/>
-       <mvc:resources mapping="/js/**" location="/JavaScript/"/>
+       <!--<mvc:resources mapping="/css/**" location="/CSS/"/>-->
+       <!--<mvc:resources mapping="/js/**" location="/JavaScript/"/>-->
 
        <mvc:default-servlet-handler />
 

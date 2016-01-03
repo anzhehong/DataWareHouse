@@ -103,17 +103,17 @@
   <fieldset>
     <label>According to Movie Starring:</label>
     <input type="text" name="starring" size="30" placeholder="input movie starring">
-    <input type="submit" value="Search" formaction="/Amazon/searchByMovie">
+    <input type="submit" value="Search" formaction="/Amazon/searchByMovie/searchByStarring">
   </fieldset>
   <fieldset>
     <label>According to Movie Actor:</label>
     <input type="text" name="actor" size="30" placeholder="input movie actor">
-    <input type="submit" value="Search" formaction="/Amazon/searchByMovie">
+    <input type="submit" value="Search" formaction="/Amazon/searchByMovie/searchByActor">
   </fieldset>
   <fieldset>
     <label>According to Movie Director:</label>
     <input type="text" name="director" size="30" placeholder="input movie director">
-    <input type="submit" value="Search" formaction="/Amazon/searchByMovie">
+    <input type="submit" value="Search" formaction="/Amazon/searchByMovie/searchByDirector">
   </fieldset>
   <fieldset>
     <label>According to Movie Version:</label>
@@ -123,8 +123,8 @@
   <fieldset>
     <label>According to Movie Time, Year:</label>
     <input type="text" value="" id="datetimepicker" name="date"/>
-    <input type="submit" value="Search" formaction="/Amazon/searchByMovie/searchByDate">
-    <input type="submit" value="Search" formaction="/Amazon/searchByMovie/searchByYear">
+    <input type="submit" value="SearchByDate" formaction="/Amazon/searchByMovie/searchByDate">
+    <input type="submit" value="SearchByYear" formaction="/Amazon/searchByMovie/searchByYear">
     </select>
   </fieldset>
   <fieldset>

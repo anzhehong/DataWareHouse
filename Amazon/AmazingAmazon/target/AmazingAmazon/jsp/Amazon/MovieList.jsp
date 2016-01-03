@@ -84,6 +84,14 @@
   <caption>Search Result</caption>
 </table>
 
+<input type="text" hidden="hidden" value="${HiveTime}" id="HiveTime">
+<input type="text" hidden="hidden" value="${MySQLTime}" id="MySQLTime">
+<%--<input type="text" hidden="hidden" value="${Scale}" id="Scale">--%>
+
+<div id="datasource2" HiveTime="${HiveTime}"></div>
+<div id="datasource3" MySQLTime="${MySQLTime}"></div>
+<div id="datasource" Scale="${Scale}"></div>
+
 
 <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
 <div id="main" style="height:400px"></div>
@@ -106,7 +114,10 @@
           function (ec) {
             // 基于准备好的dom，初始化echarts图表
             var myChart = ec.init(document.getElementById('main'));
-
+            var datasource2 = document.getElementById('datasource2');
+            var HiveTime = datasource2.getAttribute('HiveTime');
+            var datasource3 = document.getElementById('datasource3');
+            var MySQLTime = datasource3.getAttribute('MySQLTime');
             var option = {
               tooltip: {
                 show: true
@@ -129,7 +140,7 @@
                 {
                   "name":"Time",
                   "type":"bar",
-                  "data":[100,200]
+                  "data":[HiveTime,MySQLTime]
                 }
               ]
             };
@@ -163,7 +174,9 @@
           function (ec) {
             // 基于准备好的dom，初始化echarts图表
             var myChart = ec.init(document.getElementById('bugetMain'));
-
+//            var scale = jQuery("#Scale").data('Scale');
+            var datasource = document.getElementById('datasource');
+            var scale = datasource.getAttribute('Scale');
             var option = {
               legend: {
                 data:['Movie']
@@ -195,7 +208,7 @@
                   name:'Execution Time',
                   type:'gauge',
                   detail : {formatter:'{value}%'},
-                  data:[{value: 33, name: 'MySQL/Hive'}]
+                  data:[{value: scale, name: 'MySQL/Hive'}]
                 }
               ]
             };
@@ -206,11 +219,30 @@
   );
 </script>
 
+<table>
+  <caption>Execute Time</caption>
+  <thead>
+  <tr>
+    <th>Hive</th>
+    <th>MySQL</th>
+    <th>Hive/MySQL</th>
+  </tr>
+  </thead>
 
-
+  <tbody>
+  <%--<c:param name="${HiveTime}" --%>
+  <tr>
+    <td>${HiveTime}ms</td>
+    <td>${MySQLTime}ms</td>
+    <td>${Scale}</td>
+  </tr>
+  </tbody>
+</table>
 
 <table>
   <caption>Search Result</caption>
+
+
   <thead>
   <tr>
     <th>MovieID</th>
@@ -229,7 +261,7 @@
       <td>${result.movieId}</td>
       <td>${result.productId}</td>
       <td>${result.movieName}</td>
-      <td>time</td>
+      <td>${result.year}/${result.month}/${result.day}</td>
       <td>${result.movieVersion}</td>
       <td>${result.style}</td>
     </tr>
