@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <%--
   Created by IntelliJ IDEA.
   User: fowafolo
@@ -90,8 +92,13 @@
   </fieldset>
   <fieldset>
     <label>According to Movie Style:</label>
-    <input type="text" name="style" size="30" placeholder="input movie style">
-    <input type="submit" value="Search">
+    <%--<input type="text" name="style" size="30" placeholder="input movie style">--%>
+    <select name="style" id="style" style="width: 100px">
+      <c:forEach items="${allMovieStyles}" var="allMovieStyles">
+        <option value="${allMovieStyles}">${allMovieStyles}</option>
+      </c:forEach>
+    </select>
+    <input type="submit" value="Search" formaction="/Amazon/searchByMovie/searchByStyle">
   </fieldset>
   <fieldset>
     <label>According to Movie Starring:</label>
@@ -111,12 +118,13 @@
   <fieldset>
     <label>According to Movie Version:</label>
     <input type="text" name="version" size="30" placeholder="input movie version">
-    <input type="submit" value="Search" formaction="/Amazon/searchByMovie">
+    <input type="submit" value="Search" formaction="/Amazon/searchByMovie/searchByVersion">
   </fieldset>
   <fieldset>
     <label>According to Movie Time, Year:</label>
     <input type="text" value="" id="datetimepicker" name="date"/>
     <input type="submit" value="Search" formaction="/Amazon/searchByMovie/searchByDate">
+    <input type="submit" value="Search" formaction="/Amazon/searchByMovie/searchByYear">
     </select>
   </fieldset>
   <fieldset>

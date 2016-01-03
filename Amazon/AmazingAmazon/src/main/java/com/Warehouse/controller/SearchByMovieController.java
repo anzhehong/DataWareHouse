@@ -21,16 +21,16 @@ public class SearchByMovieController {
     private SearchMovieService searchMovieService;
 
     /**
-     * ×ÛºÏÌõ¼ş²éÑ¯
-     * @param moviename  µçÓ°Ãû
-     * @param style µçÓ°·ç¸ñ
-     * @param starring  Ö÷Ñİ
-     * @param actor ÑİÔ±
-     * @param direcotr  µ¼Ñİ
-     * @param version   °æ±¾
-     * @param date  Ê±¼ä
+     * ç»¼åˆæ¡ä»¶æŸ¥è¯¢
+     * @param moviename  ç”µå½±å
+     * @param style ç”µå½±é£æ ¼
+     * @param starring  ä¸»æ¼”
+     * @param actor æ¼”å‘˜
+     * @param direcotr  å¯¼æ¼”
+     * @param version   ç‰ˆæœ¬
+     * @param date  æ—¶é—´
      * @param model Hibernate Model
-     * @return Ò³Ãæ
+     * @return é¡µé¢
      */
     @RequestMapping("")
     public String MutipluConditions(String moviename,String style,String starring, String actor,
@@ -41,10 +41,10 @@ public class SearchByMovieController {
     }
 
     /**
-     * ×ÛºÏÌõ¼ş²éÑ¯
-     * @param moviename  µçÓ°Ãû
+     * ç»¼åˆæ¡ä»¶æŸ¥è¯¢
+     * @param moviename  ç”µå½±å
      * @param model Hibernate Model
-     * @return Ò³Ãæ
+     * @return é¡µé¢
      */
     @RequestMapping("searchByName")
     public String SearchByName(String moviename, Model model){
@@ -54,18 +54,20 @@ public class SearchByMovieController {
     }
 
     /***
-     * °´ÕÕµçÓ°Ãû²éÑ¯
+     * æŒ‰ç…§ç”µå½±åæŸ¥è¯¢
      * @param style
      * @param model
      * @return
      */
     @RequestMapping("searchByStyle")
     public String SearchByStyle(String style, Model model){
+        ArrayList<AllMovie> list = searchMovieService.getByMovieStyle(style);
+        model.addAttribute("result",list);
         return "/Amazon/MovieList";
     }
 
     /***
-     * °´ÕÕÖ÷Ñİ²éÑ¯
+     * æŒ‰ç…§ä¸»æ¼”æŸ¥è¯¢
      * @param starring
      * @param model
      * @return
@@ -76,7 +78,7 @@ public class SearchByMovieController {
     }
 
     /***
-     * °´ÕÕÑİÔ±²éÑ¯
+     * æŒ‰ç…§æ¼”å‘˜æŸ¥è¯¢
      * @param actor
      * @param model
      * @return
@@ -87,7 +89,7 @@ public class SearchByMovieController {
     }
 
     /***
-     * °´ÕÕµ¼Ñİ²éÑ¯
+     * æŒ‰ç…§å¯¼æ¼”æŸ¥è¯¢
      * @param director
      * @param model
      * @return
@@ -98,18 +100,19 @@ public class SearchByMovieController {
     }
 
     /***
-     * °´ÕÕ°æ±¾²é
+     * æŒ‰ç…§ç‰ˆæœ¬æŸ¥
      * @param version
      * @param model
      * @return
      */
     @RequestMapping("searchByVersion")
     public String SearchByVersion(String version, Model model) {
+        model.addAttribute("result", searchMovieService.getByMovieVersion(version));
         return "/Amazon/MovieList";
     }
 
     /***
-     * °´ÕÕÊ±¼ä²éÑ¯
+     * æŒ‰ç…§æ—¶é—´æŸ¥è¯¢
      * @param date
      * @param model
      * @return
@@ -124,6 +127,16 @@ public class SearchByMovieController {
         System.out.println(year);
         System.out.println(month);
         System.out.println(day);
+
+        return "/Amazon/MovieList";
+    }
+
+    @RequestMapping("searchByYear")
+    public String SearchByYear(String date, Model model)
+    {
+        String[] split = date.split(" ");
+        String splitdDate = split[0];
+        String year = splitdDate.split("/")[0];
 
         return "/Amazon/MovieList";
     }

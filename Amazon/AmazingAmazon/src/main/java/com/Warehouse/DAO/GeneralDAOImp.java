@@ -19,6 +19,7 @@ public abstract class GeneralDAOImp<T> implements GeneralDAO<T>{
     @Autowired
     protected SessionFactory sessionFactory;
 
+
     public void insert(T t){
         sessionFactory.getCurrentSession().save(t);
     }
@@ -34,6 +35,12 @@ public abstract class GeneralDAOImp<T> implements GeneralDAO<T>{
     public T queryById(String id){
         return (T) sessionFactory.getCurrentSession().get(entityClass,id);
     }
+
+    @Override
+    public T queryByIntId(int id) {
+        return (T) sessionFactory.getCurrentSession().get(entityClass,id);
+    }
+
     public List<T> queryAll(){
         Criteria criteria = sessionFactory.getCurrentSession().createCriteria(entityClass);
         return criteria.list();

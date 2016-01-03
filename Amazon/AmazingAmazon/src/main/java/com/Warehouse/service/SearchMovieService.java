@@ -2,19 +2,50 @@ package com.Warehouse.service;
 
 import com.Warehouse.entity.AllMovie;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by fowafolo
  * Date: 16/1/3
- * Time: 上午1:13
+ * Time: 涓婂崍1:13
  */
 public interface SearchMovieService {
 
+    public ArrayList<AllMovie> getByMultiple(String name, String style, String version,
+                                             String starring, String actor, String direcotr,
+                                             String year, String month, String day);
+
     /***
-     * 通过名字返回所有符合条件的电影
+     * 閫氳繃鍚嶅瓧杩斿洖鎵�鏈夌鍚堟潯浠剁殑鐢靛奖
      * @param name
      * @return
      */
     public List<AllMovie> getAllMovieByName(String name);
+
+
+    /***
+     * 寰楀埌鍏ㄩ儴Style锛宻elect鏍囩鏄剧ず
+     * @return
+     */
+    public ArrayList<String> getAllMovieStyles();
+
+    /**
+     * 閫氳繃style鎷垮埌movie list
+     * @param style
+     * @return
+     */
+    public ArrayList<AllMovie> getByMovieStyle(String style);
+
+    public ArrayList<AllMovie> getByMovieVersion(String version);
+
+    public ArrayList<AllMovie> getByMovieYear(String year);
+
+    public ArrayList<AllMovie> getByMovieTime(String date);
+
+    public ArrayList<AllMovie> getByMovieStarring(String starring);
+
+    public ArrayList<AllMovie> getByMovieActor(String actor);
+
+    public ArrayList<AllMovie> gtByMovieDirector(String director);
 }

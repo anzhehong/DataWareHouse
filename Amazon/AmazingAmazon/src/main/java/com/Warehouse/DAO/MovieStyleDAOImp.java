@@ -13,4 +13,5 @@ public class MovieStyleDAOImp extends GeneralDAOImp<MovieStyle> implements Movie
     {
         super(MovieStyle.class);
     }
+
 }
