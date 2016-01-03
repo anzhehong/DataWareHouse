@@ -133,14 +133,14 @@
   </fieldset>
 </form>
 
-<form method="post" name="FindByReview" action="">
-  <fieldset>
-    <legend><b>Find By Review Score</b></legend>
-    <!-- <label>According to Movie Name:</label>
-    <input type="text" name="movieName" size="30" placeholder="input movie name">
-    <input type="submit" value="Search"> -->
-  </fieldset>
-</form>
+<%--<form method="post" name="FindByReview" action="">--%>
+  <%--<fieldset>--%>
+    <%--<legend><b>Find By Review Score</b></legend>--%>
+    <%--<!-- <label>According to Movie Name:</label>--%>
+    <%--<input type="text" name="movieName" size="30" placeholder="input movie name">--%>
+    <%--<input type="submit" value="Search"> -->--%>
+  <%--</fieldset>--%>
+<%--</form>--%>
 
 
 </body>

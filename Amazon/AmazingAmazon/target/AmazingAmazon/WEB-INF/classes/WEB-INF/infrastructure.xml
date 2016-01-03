@@ -8,9 +8,10 @@
     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
     ">
 
+        <!--  classpath*:*.properties-->
        <context:property-placeholder location="classpath:/WEB-INF/properties/hibernate.properties" />
 
-       <!-- 使用C3P0数据源，MySQL数据库 -->
+           <!-- 使用C3P0数据源，MySQL数据库 -->
        <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
              destroy-method="close">
               <!-- MySQL5 -->
@@ -31,10 +32,17 @@
               <property name="packagesToScan" value="com.Warehouse.entity" />
               <property name="hibernateProperties">
                      <props>
-                            <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
-                            <prop key="hibernate.dialect">${hibernate.dialect}</prop>
-                            <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
-                            <prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+                        <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+                        <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+                        <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+                        <prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+                         <!--used for debugging-->
+                        <prop key="hibernate.generate_statistics">${hibernate.generate_statistics}</prop>
+                         <prop key="hibernate.cache.use_second_level_cache">${hibernate.cache.use_second_lever_cache}</prop>
+                         <!--<prop key="cache.provider_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</prop>-->
+                         <!--<prop key="hibernate.cache.use_query_cache">true</prop>-->
+                         <!--<prop key="hibernate.cache.use_query_cache">true</prop>-->
+                         <!--<prop key="hibernate.cache.provider_configuration_file_resource_path">${hibernate.provider_class}</prop>-->
                      </props>
               </property>
        </bean>
@@ -44,6 +52,16 @@
               <property name="sessionFactory" ref="sessionFactory"></property>
        </bean>
 
+        <!--spring cache-->
+        <bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
+            <property name="caches">
+                <set>
+                    <bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"></bean>
+                </set>
+            </property>
+        </bean>
+
+       <!-- enable @Transactional Annotation -->
        <tx:annotation-driven transaction-manager="transactionManager" />
 
 </beans>

@@ -208,7 +208,7 @@
                   name:'Execution Time',
                   type:'gauge',
                   detail : {formatter:'{value}%'},
-                  data:[{value: scale, name: 'MySQL/Hive'}]
+                  data:[{value: scale, name: 'MySQL/(Hive+MySQL)'}]
                 }
               ]
             };

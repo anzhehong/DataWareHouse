@@ -136,7 +136,7 @@ public class AllMovieServiceImp implements AllMovieService {
                     break;
             }
 
-//            System.out.println("我分开插Movie");
+//            System.out.println("鎴戝垎寮�鎻扢ovie");
         }
     }
 
@@ -153,7 +153,7 @@ public class AllMovieServiceImp implements AllMovieService {
             }
 
             movieStyleDAO.insert(movieStyle);
-//            System.out.println("我插Style");
+//            System.out.println("鎴戞彃Style");
         }
 //        System.out.println("ll");
     }
@@ -171,7 +171,7 @@ public class AllMovieServiceImp implements AllMovieService {
             staff.setStaffName(name);
 //            System.out.println(name);
             staffDAO.insert(staff);
-//            System.out.println("我插Staff");
+//            System.out.println("鎴戞彃Staff");
 //            System.out.println(staff.getStaffName());
         }
     }
@@ -184,7 +184,7 @@ public class AllMovieServiceImp implements AllMovieService {
             movieStaff.setId(getId());
 
             movieStaffDAO.insert(movieStaff);
-//            System.out.println("我插movie staff");
+//            System.out.println("鎴戞彃movie staff");
         }
     }
 

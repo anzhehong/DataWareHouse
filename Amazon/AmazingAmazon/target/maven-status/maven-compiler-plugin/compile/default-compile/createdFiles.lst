@@ -19,6 +19,7 @@ com/Warehouse/DAO/StylesDAO.class
 com/Warehouse/DAO/StaffDAO.class
 com/Warehouse/service/AllMovieService.class
 com/Warehouse/DAO/Movie_1DAO.class
+com/Warehouse/controller/TestCache.class
 com/Warehouse/DAO/MovieStyleDAO.class
 com/Warehouse/service/HiveServiceImp.class
 com/Warehouse/DAO/Movie_2DAO.class

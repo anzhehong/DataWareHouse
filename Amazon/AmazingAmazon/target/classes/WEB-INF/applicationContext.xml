@@ -7,10 +7,21 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
         ">
 <import resource="infrastructure.xml"/>
-       <context:component-scan base-package="com.Warehouse.service"/>
-       <context:component-scan base-package="com.Warehouse.entity"/>
-       <context:component-scan base-package="com.Warehouse.DAO"/>
+
+    <!--Autowired-->
+    <!--  used to activate annotations in beans already registered
+    in the application context (no matter if they were defined with XML or by package scanning) -->
+
+    <!-- scans packages to find and register beans within the application context. -->
+   <context:component-scan base-package="com.Warehouse.service"/>
+   <context:component-scan base-package="com.Warehouse.entity"/>
+   <context:component-scan base-package="com.Warehouse.DAO"/>
 
     <bean id="main" name="main" class="com.Warehouse.controller.InsertMovieInfo"></bean>
+
+
+
+
+
 
 </beans>

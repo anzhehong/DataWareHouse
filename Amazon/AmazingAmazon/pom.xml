@@ -53,7 +53,21 @@
       <artifactId>spring-test</artifactId>
       <version>4.1.6.RELEASE</version>
     </dependency>
-
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-orm</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>4.0.6.RELEASE</version>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-mapper-asl</artifactId>
+      <version>1.9.13</version>
+    </dependency>
 
     <!--hibernate-validator是为了正常的使用springMVC中的valid-->
     <dependency>
@@ -63,13 +77,18 @@
     </dependency>
     <!--Hibernate核心包 和 用Spring管理一些对象-->
     <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-orm</artifactId>
-      <version>${spring.version}</version>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>${hibernate.version}</version>
     </dependency>
     <dependency>
       <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-core</artifactId>
+      <artifactId>hibernate-entitymanager</artifactId>
+      <version>${hibernate.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-ehcache</artifactId>
       <version>${hibernate.version}</version>
     </dependency>
     <dependency>
@@ -82,6 +101,13 @@
       <artifactId>mysql-connector-java</artifactId>
       <version>5.1.31</version>
     </dependency>
+
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.17</version>
+    </dependency>
+
     <!--commons-fileupload包是为了文件上传所需要的-->
     <dependency>
       <groupId>commons-fileupload</groupId>
@@ -90,39 +116,70 @@
     </dependency>
 
     <!--jackson-mapper包是使springMVC可以返回json值-->
-    <dependency>
-      <groupId>org.codehaus.jackson</groupId>
-      <artifactId>jackson-mapper-asl</artifactId>
-      <version>1.9.13</version>
-    </dependency>
 
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.2</version>
+      <version>4.10</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-ehcache</artifactId>
+      <version>${hibernate.version}</version>
+    </dependency>
+    <dependency>
+      <artifactId>hibernate-ehcache</artifactId>
+      <groupId>org.hibernate</groupId>
+      <version>4.0.0.CR6</version>
+    </dependency>
+    <dependency>
+      <groupId>net.sf.ehcache</groupId>
+      <artifactId>ehcache</artifactId>
+      <version>1.5.0</version>
+    </dependency>
+
+    <!--hive-->
+    <!--<dependency>-->
+      <!--<groupId>org.apache.hive</groupId>-->
+      <!--<artifactId>hive-jdbc</artifactId>-->
+      <!--<version>0.11.0</version>-->
+    <!--</dependency>-->
     <!--<dependency>-->
       <!--<groupId>org.apache.hive</groupId>-->
       <!--<artifactId>hive-jdbc</artifactId>-->
       <!--<version>1.2.1</version>-->
     <!--</dependency>-->
-
-    <!--MySQL驱动和c3p0连接池-->
-
-    <!--junit4-->
-
-
-    <!--hadoop and hive-->
-
-
-
-
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-webmvc</artifactId>
-      <version>4.0.6.RELEASE</version>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>commons-logging</groupId>-->
+      <!--<artifactId>commons-logging</artifactId>-->
+      <!--<version>1.1.1</version>-->
+    <!--</dependency>-->
+    <!--<dependency>-->
+      <!--<groupId>org.apache.hadoop</groupId>-->
+      <!--<artifactId>hadoop-common</artifactId>-->
+      <!--<version>0.23.5</version>-->
+    <!--</dependency>-->
+    <!--<dependency>-->
+      <!--<groupId>org.apache.hive</groupId>-->
+      <!--<artifactId>hive-service</artifactId>-->
+      <!--<version>1.2.1</version>-->
+    <!--</dependency>-->
+    <!--<dependency>-->
+      <!--<groupId>org.apache.thrift</groupId>-->
+      <!--<artifactId>libthrift</artifactId>-->
+      <!--<version>0.9.0</version>-->
+    <!--</dependency>-->
+    <!--<dependency>-->
+      <!--<groupId>org.slf4j</groupId>-->
+      <!--<artifactId>slf4j-api</artifactId>-->
+      <!--<version>1.6.1</version>-->
+    <!--</dependency>-->
+    <!--<dependency>-->
+      <!--<groupId>org.slf4j</groupId>-->
+      <!--<artifactId>slf4j-log4j12</artifactId>-->
+      <!--<version>1.7.5</version>-->
+    <!--</dependency>-->
 
   </dependencies>
 
