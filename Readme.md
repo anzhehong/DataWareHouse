@@ -1,5 +1,5 @@
 # Data Warehouse Project
-# 2015年同济大学Windows期末课程项目设计
+# 2015年同济大学数据仓库期末课程项目设计
 
 
 ## 项目要求
