@@ -228,6 +228,7 @@
     <th>Hive</th>
     <th>MySQL</th>
     <th>Hive/MySQL</th>
+    <th>Data Size</th>
   </tr>
   </thead>
 
@@ -237,6 +238,7 @@
     <td>${HiveTime}ms</td>
     <td>${MySQLTime}ms</td>
     <td>${Scale}</td>
+    <td>${size}</td>
   </tr>
   </tbody>
 </table>

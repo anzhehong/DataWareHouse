@@ -58,6 +58,9 @@ public class SearchByMovieController {
         model.addAttribute("Scale",new BigDecimal(scale).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue());
         model.addAttribute("result",list);
 
+        int size = list.size();
+        model.addAttribute("size",String.valueOf(size));
+
         return "/Amazon/MovieList";
     }
 
@@ -85,6 +88,10 @@ public class SearchByMovieController {
         model.addAttribute("Scale",new BigDecimal(scale).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue());
         model.addAttribute("result",list);
         model.addAttribute("result",list);
+
+        int size = list.size();
+        model.addAttribute("size", String.valueOf(size));
+
         return "/Amazon/MovieList";
     }
 
@@ -113,6 +120,10 @@ public class SearchByMovieController {
         double scale = (double)MySQLTime/(HiveTime+MySQLTime)*100;
         model.addAttribute("Scale",new BigDecimal(scale).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue());
         model.addAttribute("result",list);
+
+        int size = list.size();
+        model.addAttribute("size",String.valueOf(size));
+
         return "/Amazon/MovieList";
     }
 
@@ -137,6 +148,10 @@ public class SearchByMovieController {
         double scale = (double)MySQLTime/(HiveTime+MySQLTime)*100;
         model.addAttribute("Scale",new BigDecimal(scale).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue());
         model.addAttribute("result",list);
+
+        int size = list.size();
+        model.addAttribute("size",String.valueOf(size));
+
         return "/Amazon/MovieList";
     }
 
@@ -165,6 +180,9 @@ public class SearchByMovieController {
         model.addAttribute("Scale",new BigDecimal(scale).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue());
         model.addAttribute("result",list);
 
+        int size = list.size();
+        model.addAttribute("size",String.valueOf(size));
+
         return "/Amazon/MovieList";
     }
 
@@ -190,6 +208,8 @@ public class SearchByMovieController {
         model.addAttribute("Scale",new BigDecimal(scale).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue());
         model.addAttribute("result",list);
 
+        int size = list.size();
+        model.addAttribute("size",String.valueOf(size));
 
         return "/Amazon/MovieList";
     }
@@ -215,6 +235,9 @@ public class SearchByMovieController {
         double scale = MySQLTime/(HiveTime+MySQLTime)*100;
         model.addAttribute("Scale",new BigDecimal(scale).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue());
         model.addAttribute("result",list);
+
+        int size = list.size();
+        model.addAttribute("size",String.valueOf(size));
 
         return "/Amazon/MovieList";
     }
@@ -247,6 +270,9 @@ public class SearchByMovieController {
         model.addAttribute("Scale",new BigDecimal(scale).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue());
         model.addAttribute("result",list);
 
+        int size = list.size();
+        model.addAttribute("size",String.valueOf(size));
+
         return "/Amazon/MovieList";
     }
 
@@ -275,6 +301,9 @@ public class SearchByMovieController {
         double scale = MySQLTime/(HiveTime+MySQLTime)*100;
         model.addAttribute("Scale",new BigDecimal(scale).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue());
         model.addAttribute("result",list);
+
+        int size = list.size();
+        model.addAttribute("size",String.valueOf(size));
 
         return "/Amazon/MovieList";
     }
