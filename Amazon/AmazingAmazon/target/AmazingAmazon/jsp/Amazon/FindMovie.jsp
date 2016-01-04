@@ -37,7 +37,7 @@
   <meta charset="UTF-8">
   <title>Amazing Amazon Center</title>
   <link rel="stylesheet" type="text/css" href="/Amazon/rs/jquery.datetimepicker.css"/>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <%--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>--%>
   <script src="/Amazon/rs/jquery.datetimepicker.js"></script>
   <script src="/Amazon/rs/./jquery.js"></script>
   <script src="/Amazon/rs/jquery.datetimepicker.full.js"></script>

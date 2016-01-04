@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class HiveUtil {
 
     private static final String driverName = "org.apache.hive.jdbc.HiveDriver";
-    private static final String connection = "jdbc:hive2://10.0.1.29:10000/default";
+    private static final String connection = "jdbc:hive2://192.168.199.153/default";
     private static final String userName = "bruno";
     private static final String password ="";
     private static  int count = 0;

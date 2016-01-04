@@ -96,7 +96,8 @@
 <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
 <div id="main" style="height:400px"></div>
 <!-- ECharts单文件引入 -->
-<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+<%--<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>--%>
+<script src="/Amazon/rs/echart.js"></script>
 <script type="text/javascript">
   // 路径配置
   require.config({
@@ -123,7 +124,7 @@
                 show: true
               },
               legend: {
-                data:['Movie']
+                data:['Time']
               },
               xAxis : [
                 {
@@ -156,7 +157,8 @@
 <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
 <div id="bugetMain" style="height:400px"></div>
 <!-- ECharts单文件引入 -->
-<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+<%--<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>--%>
+<script src="/Amazon/rs/echart.js"></script>
 <script type="text/javascript">
   // 路径配置
   require.config({
@@ -195,14 +197,14 @@
               tooltip : {
                 formatter: "{a} <br/>{b} : {c}%"
               },
-              toolbox: {
-                show : true,
-                feature : {
-                  mark : {show: true},
-                  restore : {show: true},
-                  saveAsImage : {show: true}
-                }
-              },
+//              toolbox: {
+//                show : true,
+//                feature : {
+//                  mark : {show: true},
+//                  restore : {show: true},
+//                  saveAsImage : {show: true}
+//                }
+//              },
               series : [
                 {
                   name:'Execution Time',
